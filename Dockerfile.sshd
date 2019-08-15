@@ -18,4 +18,11 @@ RUN mv /bin/vi /bin/vi.org; ln -s /bin/vim /bin/vi
 ADD bashrc /tmp
 RUN cat /tmp/bashrc >> /etc/bashrc; rm -f /tmp/bashrc
 
+RUN yum -y install openssh-server; yum clean all;
+RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+RUN sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN echo "root:hello" | chpasswd
+RUN systemctl enable sshd
+EXPOSE 22
+
 CMD ["/usr/sbin/init"]
