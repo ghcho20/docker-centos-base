@@ -6,6 +6,7 @@ docker run --privileged --name sshd -d --rm centos:0
 
 # open bash
 docker exec -it sshd bash
+
 winpty docker exec -it sshd bash # if run command on mintty (e.g. cygwin)
 
 # stop & cleanup
