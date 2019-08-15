@@ -1,0 +1,7 @@
+alias ll='ls -l'
+alias la='ls -la'
+alias l='ls -F'
+alias a='ls -aF'
+alias lsd='ls -F | grep "/$" | column'
+alias lsf='ls -F | grep "[^/]$" | column'
+alias h='history'
